@@ -1,0 +1,5 @@
+class Pezzo{
+    constructor(){
+        
+    }
+}

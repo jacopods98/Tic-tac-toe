@@ -1,0 +1,8 @@
+class Gioco{
+    constructor(){
+
+    }
+    reset(){
+        
+    }
+}
