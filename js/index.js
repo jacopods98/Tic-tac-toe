@@ -48,6 +48,19 @@ function toI(x,y){
     return 100
 }
 
+function drawTurn(n){
+    var {x,y}=toXY(8);
+    y=y+o.size/4
+    x=x+2*o.size
+    strokeWeight(o.LW/2);
+    if(n>0){
+        line(x-o.size/4+2*o.LW/2,y-o.size/4+2*o.LW/2,x+o.size/4-2*o.LW/2,y+o.size/4-2*o.LW/2);
+        line(x-o.size/4+2*o.LW/2,y+o.size/4-2*o.LW/2,x+o.size/4-2*o.LW/2,y-o.size/4+2*o.LW/2);
+    }else if(n<0){
+        circle(x,y,o.size/4+o.LW/2);
+    }
+}
+
 function draw(){
     background(161, 201, 198);
     gioco.draw()
@@ -56,6 +69,7 @@ function draw(){
         var {x,y}=toXY(i)
         pezzo.draw(x,y);
     }
+    drawTurn(gioco.isCross);
 //     pezzo=new Pezzo(1);
 //     pezzo.draw(o.ox+3*o.size/2,o.oy+3*o.size/2);
  }
@@ -78,7 +92,6 @@ function keyPressed(){
             break;
         case "u":
             gioco.undo();
-            gioco.isCross=-gioco.isCross;
             break;
     }
 }

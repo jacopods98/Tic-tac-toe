@@ -24,6 +24,9 @@ class Gioco {
     }
     undo() {
         var tm=this.u.pop();
-        if(tm){this.layout =tm};
+        if(tm){
+            this.layout =tm;
+            this.isCross=-this.isCross;
+        }
     }
 }
